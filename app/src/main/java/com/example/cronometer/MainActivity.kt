@@ -100,8 +100,6 @@ class MainActivity : ComponentActivity() {
                 }
             )
         }
-
-        //TODO: Add Pause/Resume button, and a Stop button
     }
 
     @Composable
