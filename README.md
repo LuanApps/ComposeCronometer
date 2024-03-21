@@ -2,10 +2,6 @@
 
 ComposeCronometer is an Android application that demonstrates the usage of Jetpack Compose for building the UI, and the Kotlin Flows together with coroutines' Job to handle a countdown timer.
 
-<img src="/screen1.png" alt="Screen 1" width="300">
-<img src="/screen2.png" alt="Screen 2" width="300">
-<img src="/screen3.png" alt="Screen 3" width="300">
-
 ## Purpose
 
 ComposeCronometer is designed to showcase the integration of Jetpack Compose, Kotlin Flows, and coroutines to build a countdown timer feature. The app consists of a Cronometer built with Jetpack Compose components and a custom TimePickerDialog for setting the timer duration.
@@ -30,6 +26,11 @@ ComposeCronometer is designed to showcase the integration of Jetpack Compose, Ko
 2. Start the Cronometer to begin the countdown.
 3. Monitor the remaining time displayed on the Cronometer UI.
 4. Upon completion, the Cronometer concludes its operation automatically.
+
+<img src="/screen1.png" alt="Screen 1" width="300">
+<img src="/screen2.png" alt="Screen 2" width="300">
+<img src="/screen3.png" alt="Screen 3" width="300">
+
 
 ## Contributing
 
