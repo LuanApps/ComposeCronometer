@@ -2,9 +2,9 @@
 
 ComposeCronometer is an Android application that demonstrates the usage of Jetpack Compose for building the UI, and the Kotlin Flows together with coroutines' Job to handle a countdown timer.
 
-1. ![Screen 1](/screen1.png)
-2. ![Screen 2](/screen2.png)
-3. ![Screen 3](/screen3.png)
+<img src="/screen1.png" alt="Screen 1" width="300">
+<img src="/screen2.png" alt="Screen 2" width="300">
+<img src="/screen3.png" alt="Screen 3" width="300">
 
 ## Purpose
 
