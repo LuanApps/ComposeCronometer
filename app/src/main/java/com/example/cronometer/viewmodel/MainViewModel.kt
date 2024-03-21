@@ -28,4 +28,9 @@ class MainViewModel: ViewModel() {
             }
         }
     }
+
+    fun stopCountdown() {
+        countdownJob?.cancel()
+        _timeRemaining.value = 0
+    }
 }

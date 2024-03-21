@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CronometerTheme {
-                val viewModel: MainViewModel = MainViewModel()
+                val viewModel = MainViewModel()
                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -77,7 +78,15 @@ class MainActivity : ComponentActivity() {
                 },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text(text = "Set Cronometer")
+                Text(text = "Setup Cronometer")
+            }
+            Button(
+                onClick = {
+                    viewModel.stopCountdown()
+                },
+                modifier = Modifier.fillMaxWidth(),
+            ){
+                Text(text = "Stop Cronometer")
             }
         }
 
