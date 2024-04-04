@@ -3,11 +3,13 @@ package com.example.cronometer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,10 +33,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.lifecycle.ViewModel
 import com.example.cronometer.ui.theme.CronometerTheme
 import com.example.cronometer.viewmodel.MainViewModel
 
@@ -43,7 +47,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CronometerTheme {
-                val viewModel = MainViewModel()
+                val viewModel: MainViewModel by viewModels()
                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -145,14 +149,16 @@ class MainActivity : ComponentActivity() {
 
                     Row (
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
+                        horizontalArrangement = Arrangement.End,
                     ){
                         // Hour Picker
                         TimePickerTextField(
                             label = "Hour",
                             value = hourText,
                             onValueChange = { hourText = it },
-                            modifier = Modifier.weight(1f) // Each field gets equal width
+                            modifier = Modifier
+                                .weight(1f) // Each field gets equal width
+                                .padding(end = 8.dp)
                         )
 
                         // Minute Picker
@@ -162,7 +168,9 @@ class MainActivity : ComponentActivity() {
                             onValueChange = { minuteText = it.take(2).takeIf {
                                 (it.toIntOrNull() ?: 0) <= 59
                             } ?: "59" },
-                            modifier = Modifier.weight(1f) // Each field gets equal width
+                            modifier = Modifier
+                                .weight(1f) // Each field gets equal width
+                                .padding(end = 8.dp)
                         )
 
                         // Second Picker
@@ -193,6 +201,23 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    @Preview
+    @Composable
+    fun CustomTimePickerDialogPreview() {
+        // Define a sample time selected callback
+        val onTimeSelected: (Int, Int, Int) -> Unit = { hour, minute, second ->
+            // Do something with selected time
+        }
+
+        // Call your CustomTimePickerDialog composable with preview values
+        CustomTimePickerDialog(
+            title = "Select Time",
+            onDismissRequest = { /* Preview action */ },
+            containerColor = MaterialTheme.colorScheme.surface,
+            onTimeSelected = onTimeSelected
+        )
     }
 
     @Composable
